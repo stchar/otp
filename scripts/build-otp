@@ -39,5 +39,6 @@ fi
 do_and_log "Autoconfing" autoconf
 do_and_log "Configuring" configure --enable-plain-emulator
 do_and_log "Building OTP" boot -a
+do_and_log "Preparing release" release -a
 
 exit 0

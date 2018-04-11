@@ -12,4 +12,7 @@ git archive --format=tar.gz --prefix=otp/ HEAD >scripts/otp.tar.gz
 
 docker build -t otp --file scripts/Dockerfile.$ARCH scripts
 rm scripts/otp.tar.gz
-docker run --volume="$PWD/logs:/buildroot/otp/logs" -i --rm otp ${1+"$@"}
+
+docker run \
+    --volume="$PWD/logs:/buildroot/otp/logs" \
+    --volume="$PWD/release:/buildroot/otp/release" -i --rm otp ${1+"$@"}
